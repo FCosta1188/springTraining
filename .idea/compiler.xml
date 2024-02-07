@@ -6,13 +6,17 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="content-calendar" />
+        <module name="contentCalendar" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="content-calendar" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="content-calendar" options="-parameters" />
+      <module name="contentCalendar" options="-parameters" />
     </option>
   </component>
 </project>
