@@ -13,7 +13,7 @@ class ContentCollectionRepository {
 
     final List<Content> content = []
 
-    public ContentCollectionRepository() {
+    ContentCollectionRepository() {
     }
 
     @PostConstruct
