@@ -13,7 +13,7 @@ boilerplate for such classes (constructors, getters/setters, toString, etc.).
 */
 
 record Content(
-        Integer id,
+        Integer id, // getter: id(), setter: setProperty(String propertyName, Object newValue)
         String title,
         String desc,
         Status status,

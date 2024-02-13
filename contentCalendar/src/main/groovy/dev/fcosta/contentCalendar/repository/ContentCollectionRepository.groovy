@@ -11,7 +11,7 @@ import java.time.LocalDateTime
 @Repository // keep a collection of Content objects in memory, when not working with a DB
 class ContentCollectionRepository {
 
-    final List<Content> content = []
+    final List<Content> contentList = []
 
     ContentCollectionRepository() {
     }
@@ -34,8 +34,8 @@ class ContentCollectionRepository {
 
         Content c2 = new Content(
                 2,
-                "My First Blog Post",
-                "My First Blog Post description",
+                "My Second Blog Post",
+                "My Second Blog Post description",
                 Status.IDEA,
                 Type.ARTICLE,
                 LocalDateTime.now(),
@@ -43,12 +43,12 @@ class ContentCollectionRepository {
                 ""
         )
 
-        content.add(c1)
-        content.add(c2)
+        contentList.add(c1)
+        contentList.add(c2)
     }
 
     List<Content> findAll() {
-        return content
+        return contentList
     }
 
     // Optional:
@@ -57,6 +57,19 @@ class ContentCollectionRepository {
      value is present, the object is considered empty and
      {@code isPresent()} returns {@code false}. */
     Optional<Content> findById(Integer id) {
-        return content.stream().filter {c -> c.id().equals(id)}.findFirst()
+        return contentList.stream().filter { c -> c.id().equals(id)}.findFirst()
+    }
+
+    void save(Content content) {
+        contentList.add(content)
+    }
+
+    void updateById(Content content) {
+        deleteById(content.id())
+        contentList.add(content)
+    }
+
+    void deleteById(Integer id) {
+        contentList.removeIf {c -> c.id().equals(id)}
     }
 }

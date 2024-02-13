@@ -1,0 +1,45 @@
+### find all
+GET localhost:8080/api/content
+
+### find by ID
+GET http://localhost:8080/api/content/1
+###
+GET http://localhost:8080/api/content/2
+###
+GET http://localhost:8080/api/content/3
+###
+GET http://localhost:8080/api/content/4
+
+### create
+POST http://localhost:8080/api/content
+Content-Type: application/json
+
+  {
+    "id": 3,
+    "title": "My Third Blog Post",
+    "desc": "My Third Blog Post description",
+    "status": "IDEA",
+    "contentType": "ARTICLE",
+    "dateCreated": "2024-02-13T15:34:13.4817457",
+    "dateUpdated": null,
+    "url": ""
+  }
+
+### update
+PUT http://localhost:8080/api/content/3
+Content-Type: application/json
+
+{
+  "id": 3,
+  "title": "My Third Blog Post",
+  "desc": "My Third Blog Post description",
+  "status": "IDEA",
+  "contentType": "ARTICLE",
+  "dateCreated": "2024-02-13T15:34:13.4817457",
+  "dateUpdated": "2024-02-20T15:34:13.4817457",
+  "url": "myurl3.com"
+}
+
+### delete by ID
+DELETE http://localhost:8080/api/content/3
+
