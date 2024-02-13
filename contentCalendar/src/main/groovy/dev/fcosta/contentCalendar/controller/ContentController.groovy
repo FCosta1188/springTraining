@@ -31,14 +31,14 @@ class ContentController {
 
     @GetMapping("/{id}")
     Optional<Content> findById(@PathVariable("id") Integer id) {
-        return repository.findById(id)
+        def contentById = repository.findById(id)
 
-/*        def contentById = repository.findById(id)
-
-        if (contentById.isEmpty())
-            {throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Content not found")}
+        // Handling null
+        if (contentById)
+            return repository.findById(id)
         else
-            {return repository.findById(id)}*/
-
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Content not found")
+        // --- OR ---
+        // return repository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Content not found")) // change return type from Optional<Content> to Content
     }
 }

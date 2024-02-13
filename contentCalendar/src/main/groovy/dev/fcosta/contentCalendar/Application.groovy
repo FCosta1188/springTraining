@@ -19,7 +19,7 @@ That's why it's rare to see a "new Object()" statement in Spring.
 Instance of a class, which includes configuration metadata (name, scope, etc:).
 
 Classes can be added to the list of beans used by the app (ie, the app components,
-included in the ApplicationContext)
+included in the ApplicationContext), in two ways:
  - class level: by using the @Component annotation on the target class (see SpringBeanDemo), or a more specific annotation (eg @RestService, @Controller, @Repository, etc.)
  - method level: @Configuration (class) and @Bean (method) (see ConfigDemo)
 */

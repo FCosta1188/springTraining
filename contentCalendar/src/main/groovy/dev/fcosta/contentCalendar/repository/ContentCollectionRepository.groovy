@@ -17,9 +17,9 @@ class ContentCollectionRepository {
     }
 
     @PostConstruct
-    /* The <code>PostConstruct</code> annotation is used on a method that
-       needs to be executed after dependency injection is done to perform
-       any initialization. */
+    /* @PostConstruct is used on a method that
+       needs to be executed after dependency injection is done,
+       to perform any initialization. */
     void init() {
         Content c1 = new Content(
                 1,
