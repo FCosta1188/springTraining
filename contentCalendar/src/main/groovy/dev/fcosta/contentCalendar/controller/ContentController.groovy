@@ -2,6 +2,7 @@ package dev.fcosta.contentCalendar.controller
 
 import dev.fcosta.contentCalendar.model.Content
 import dev.fcosta.contentCalendar.repository.ContentCollectionRepository
+import jakarta.validation.Valid // Data validation and constraints dependency: spring-boot-starter-validation
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.CrossOrigin
@@ -51,7 +52,7 @@ class ContentController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("")
-    void create(@RequestBody Content content) {
+    void create(@Valid @RequestBody Content content) { // @Valid: forces the request to apply data validation based on constraints defined in the Content class
         repository.save(content)
     }
 

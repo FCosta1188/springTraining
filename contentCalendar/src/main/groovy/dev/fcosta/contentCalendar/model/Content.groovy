@@ -1,5 +1,8 @@
 package dev.fcosta.contentCalendar.model
 
+
+import jakarta.validation.constraints.NotEmpty // Data validation and constraints dependency: spring-boot-starter-validation
+
 import java.time.LocalDateTime
 
 // record classes (since JDK16)
@@ -14,7 +17,7 @@ boilerplate for such classes (constructors, getters/setters, toString, etc.).
 
 record Content(
         Integer id, // getter: id(), setter: setProperty(String propertyName, Object newValue)
-        String title,
+        @NotEmpty String title,
         String desc,
         Status status,
         Type contentType,
