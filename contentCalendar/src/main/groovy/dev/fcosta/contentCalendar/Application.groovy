@@ -32,7 +32,7 @@ class Application {
         def configAppContext = SpringApplication.run(Application.class, args)
 
         //list all the beans used by the app
-        configAppContext.getBeanDefinitionNames().each {println it}
+        //configAppContext.getBeanDefinitionNames().each {println it}
 
         //fetch a bean from a @Configuration class (use the @Bean method name in getBean)
         RestTemplate rt = (RestTemplate) configAppContext.getBean("restTemplate")
