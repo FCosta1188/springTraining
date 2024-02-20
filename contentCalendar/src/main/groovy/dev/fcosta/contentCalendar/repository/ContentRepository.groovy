@@ -9,7 +9,7 @@ import org.springframework.data.repository.query.Param
 import org.springframework.stereotype.Repository
 
 @Repository
-interface ContentRepository extends ListCrudRepository<Content, Integer> {
+interface ContentRepository extends ListCrudRepository<Content,Integer> {
     List<Content> findAllByTitleContains(String keyword)
 
     @Query("""SELECT * FROM content WHERE status = :status""") // identifies a query method

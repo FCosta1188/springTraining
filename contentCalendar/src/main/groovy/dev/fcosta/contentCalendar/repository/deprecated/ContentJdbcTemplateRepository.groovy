@@ -1,4 +1,4 @@
-package dev.fcosta.contentCalendar.deprecated
+package dev.fcosta.contentCalendar.repository.deprecated
 
 import dev.fcosta.contentCalendar.model.Content
 import dev.fcosta.contentCalendar.model.Status

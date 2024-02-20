@@ -50,8 +50,8 @@ class Application {
         //configAppContext.getBeanDefinitionNames().each {println it}
 
         //fetch a bean from a @Configuration class (use the @Bean method name in getBean)
-        RestTemplate rt = (RestTemplate) configAppContext.getBean("restTemplate")
-        println rt
+        //RestTemplate rt = (RestTemplate) configAppContext.getBean("restTemplate")
+        //println rt
     }
 
     // Data init: see below or DataLoader class
@@ -60,7 +60,7 @@ class Application {
         return (args) -> {
             Content content = new Content(
                     null,
-                    "My First Blog Post",
+                    "My First Blog Post from Application",
                     "My First Blog Post description",
                     Status.IDEA,
                     Type.ARTICLE,
