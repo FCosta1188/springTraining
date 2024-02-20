@@ -1,6 +1,7 @@
 package dev.fcosta.contentCalendar.controller
 
 import dev.fcosta.contentCalendar.model.Content
+import dev.fcosta.contentCalendar.model.Status
 import dev.fcosta.contentCalendar.repository.ContentCollectionRepository
 import dev.fcosta.contentCalendar.repository.ContentJdbcTemplateRepository
 import dev.fcosta.contentCalendar.repository.ContentRepository
@@ -26,7 +27,7 @@ import org.springframework.web.server.ResponseStatusException
 @RestController // accepts http requests and provides responses
 @RequestMapping("/api/content") //controller root path
 @CrossOrigin // CORS = Cross-Origin Resource Sharing. If the annotation is used without options, CORS block is disabled for all origins. // Sample CORS error: "Access to fetch at 'http://localhost:8080/api/content' from origin 'http://127.0.0.1:5500' has been blocked by CORS policy" (server/backend and client/frontend addresses are different, that's why it's cross-origin).
-@Service("contentController")
+@Service
 class ContentController {
 
     //final ContentCollectionRepository repository //sample embedded repo
@@ -61,6 +62,16 @@ class ContentController {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Content not found")
         // --- OR ---
         // return repository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Content not found")) // change return type from Optional<Content> to Content
+    }
+
+    @GetMapping("/filterTitle/{keyword}")
+    List<Content> findByTitle(@PathVariable("keyword") String keyword) {
+        repository.findAllByTitleContains(keyword)
+    }
+
+    @GetMapping("/filterStatus/{status}")
+    List<Content> findByStatus(@PathVariable("status") Status status) {
+        repository.findAllByStatus(status)
     }
 
     @ResponseStatus(HttpStatus.CREATED)
