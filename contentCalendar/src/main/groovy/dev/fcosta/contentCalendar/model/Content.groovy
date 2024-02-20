@@ -21,9 +21,9 @@ boilerplate for such classes (constructors, getters/setters, toString, etc.).
 */
 
 record Content(
-        Integer id,
+        @Id Integer id,
         String title,
-        String desc,
+        @Column("description") String desc,
         Status status,
         Type contentType,
         LocalDateTime dateCreated,
