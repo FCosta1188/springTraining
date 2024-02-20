@@ -1,9 +1,18 @@
 package dev.fcosta.contentCalendar
 
+import dev.fcosta.contentCalendar.model.Content
+import dev.fcosta.contentCalendar.model.Status
+import dev.fcosta.contentCalendar.model.Type
+import dev.fcosta.contentCalendar.repository.ContentRepository
+import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.context.ConfigurableApplicationContext
+import org.springframework.context.annotation.Bean
 import org.springframework.web.client.RestTemplate
+
+import java.beans.BeanProperty
+import java.time.LocalDateTime
 
 // ApplicationContext and Inversion of Control (IoC)
 /*
@@ -28,7 +37,6 @@ included in the ApplicationContext), in two ways:
 class Application {
 
     static void main(String[] args) {
-        //SpringApplication.run(Application.class, args)
         def configAppContext = SpringApplication.run(Application.class, args)
 
         //list all the beans used by the app
@@ -39,4 +47,22 @@ class Application {
         println rt
     }
 
+    // Data init: see below or DataLoader class
+    @Bean
+    CommandLineRunner commandLineRunner(ContentRepository repository) {
+        return (args) -> {
+            Content content = new Content(
+                    null,
+                    "My First Blog Post",
+                    "My First Blog Post description",
+                    Status.IDEA,
+                    Type.ARTICLE,
+                    LocalDateTime.now(),
+                    null,
+                    ""
+            )
+
+            repository.save(content)
+        }
+    }
 }
