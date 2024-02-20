@@ -27,7 +27,7 @@ class ContentController {
     // Dependency Injection: https://www.youtube.com/watch?v=TBlB2_4_Sqo
     @Autowired // it is implicit when there is only one constructor
     ContentController(ContentCollectionRepository contentCollectionRepository) { // The dependency ContentCollectionRepository is injected into ContentController via constructor
-        //this.repository = new ContentCollectionRepository() // standard approach
+        //this.repository = new ContentCollectionRepository() // standard Java approach
         this.repository = contentCollectionRepository // Spring IoC approach
     }
 
