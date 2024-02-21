@@ -64,12 +64,12 @@ class ContentController {
 
     @GetMapping("/filterTitle/{keyword}")
     List<Content> findByTitle(@PathVariable("keyword") String keyword) {
-        repository.findAllByTitleContains(keyword)
+        repository.findAllByTitleContainsIgnoreCase(keyword)
     }
 
     @GetMapping("/filterStatus/{status}")
-    List<Content> findByStatus(@PathVariable("status") Status status) {
-        repository.findAllByStatus(status)
+    List<Content> findByStatus(@PathVariable("status") String status) {
+        repository.findAllByStatus(status.toString().toUpperCase() as Status)
     }
 
     @ResponseStatus(HttpStatus.CREATED)

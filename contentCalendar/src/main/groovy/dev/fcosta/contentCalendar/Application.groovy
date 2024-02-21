@@ -38,8 +38,8 @@ included in the ApplicationContext), in two ways:
  - method level: @Configuration (class) and @Bean (method) (see ConfigDemo)
 */
 
-@SpringBootApplication(scanBasePackages = "dev.fcosta.contentCalendar.repository")
-@EnableJdbcRepositories("dev.fcosta.contentCalendar.repository")
+@SpringBootApplication
+@EnableJdbcRepositories
 class Application {
     static void main(String[] args) {
         def configAppContext = SpringApplication.run(Application.class, args)
