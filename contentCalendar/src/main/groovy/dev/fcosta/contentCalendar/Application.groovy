@@ -1,5 +1,6 @@
 package dev.fcosta.contentCalendar
 
+import dev.fcosta.contentCalendar.config.ContentCalendarProperties
 import dev.fcosta.contentCalendar.model.Content
 import dev.fcosta.contentCalendar.model.Status
 import dev.fcosta.contentCalendar.model.Type
@@ -10,6 +11,7 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
 import org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration
+import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.ConfigurableApplicationContext
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.ComponentScan
@@ -40,6 +42,7 @@ included in the ApplicationContext), in two ways:
 
 @SpringBootApplication
 @EnableJdbcRepositories
+@EnableConfigurationProperties(ContentCalendarProperties.class)
 class Application {
     static void main(String[] args) {
         def configAppContext = SpringApplication.run(Application.class, args)
