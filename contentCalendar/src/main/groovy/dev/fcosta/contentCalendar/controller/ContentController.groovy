@@ -3,12 +3,9 @@ package dev.fcosta.contentCalendar.controller
 import dev.fcosta.contentCalendar.model.Content
 import dev.fcosta.contentCalendar.model.Status
 import dev.fcosta.contentCalendar.repository.ContentRepository
-import jakarta.validation.Valid
-
-// Data validation and constraints dependency: spring-boot-starter-validation
+import jakarta.validation.Valid // Data validation and constraints dependency (see pom): spring-boot-starter-validation
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
-import org.springframework.stereotype.Service
 import org.springframework.web.bind.annotation.CrossOrigin
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
@@ -26,12 +23,11 @@ import java.time.LocalDateTime
 @RestController // accepts http requests and provides responses
 @RequestMapping("/api/content") //controller root path
 @CrossOrigin // CORS = Cross-Origin Resource Sharing. If the annotation is used without options, CORS block is disabled for all origins. // Sample CORS error: "Access to fetch at 'http://localhost:8080/api/content' from origin 'http://127.0.0.1:5500' has been blocked by CORS policy" (server/backend and client/frontend addresses are different, that's why it's cross-origin).
-//@Service
 class ContentController {
 
     //final ContentCollectionRepository repository //sample embedded repo
     //final ContentJdbcTemplateRepository repository //db repo
-    @Autowired
+    @Autowired // it is implicit when there is only one field
     final ContentRepository repository // ListCrudRepository repo (Spring Data JDBC)
 
     // Dependency Injection: https://www.youtube.com/watch?v=TBlB2_4_Sqo
