@@ -21,6 +21,8 @@ import org.springframework.web.bind.annotation.ResponseStatus
 import org.springframework.web.bind.annotation.RestController
 import org.springframework.web.server.ResponseStatusException
 
+import java.time.LocalDateTime
+
 @RestController // accepts http requests and provides responses
 @RequestMapping("/api/content") //controller root path
 @CrossOrigin // CORS = Cross-Origin Resource Sharing. If the annotation is used without options, CORS block is disabled for all origins. // Sample CORS error: "Access to fetch at 'http://localhost:8080/api/content' from origin 'http://127.0.0.1:5500' has been blocked by CORS policy" (server/backend and client/frontend addresses are different, that's why it's cross-origin).
@@ -81,9 +83,11 @@ class ContentController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @PutMapping("/{id}")
     void update(@RequestBody Content content, @PathVariable("id") Integer id) {
-        if (repository.findById(id).isPresent())
+        if (repository.findById(id).isPresent()) {
             //repository.updateById(content) // ContentCollectionRepository
+            content.dateUpdated = LocalDateTime.now()
             repository.save(content) // ContentRepository
+        }
         else
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Content not found")
     }
