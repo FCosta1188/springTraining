@@ -39,8 +39,6 @@ included in the ApplicationContext), in two ways:
 */
 
 @SpringBootApplication(scanBasePackages = "dev.fcosta.contentCalendar.repository")
-//@SpringBootApplication(exclude = DataSourceAutoConfiguration)
-//@SpringBootApplication(exclude = WebMvcAutoConfiguration)
 @EnableJdbcRepositories("dev.fcosta.contentCalendar.repository")
 class Application {
     static void main(String[] args) {
@@ -66,7 +64,7 @@ class Application {
                     Type.ARTICLE,
                     LocalDateTime.now(),
                     null,
-                    ""
+                    null
             )
 
             repository.save(content)
