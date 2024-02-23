@@ -9,6 +9,9 @@
         <module name="contentCalendar" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="content-calendar" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_STRING" value="-parameters" />
