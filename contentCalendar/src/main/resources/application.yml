@@ -1,0 +1,6 @@
+# YAML (.yaml, .yml): same as .properties, but more readable
+
+spring:
+  datasource:
+    username: #spring.datasource.username
+    password: #spring.datasource.password
