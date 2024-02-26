@@ -13,7 +13,8 @@ interface ContentRepository extends ListCrudRepository<Content,Integer> {
     //List<Content> findAllByTitleContains(String keyword) // case sensitive
     List<Content> findAllByTitleContainsIgnoreCase(String keyword) // case insensitive
 
-    @Query("""SELECT * FROM content WHERE status = :status""") // @Query: identifies a query method
+    @Query("""SELECT * FROM content WHERE status = :status""") // @Query: ident
+    // ifies a query method
     //@Modifying // identifies a query method which modifies the entity (modifying query)
     List<Content> findAllByStatus(@Param("status") Status status)
 }

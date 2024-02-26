@@ -1,25 +1,10 @@
 package dev.fcosta.contentCalendar
 
 import dev.fcosta.contentCalendar.config.ContentCalendarProperties
-import dev.fcosta.contentCalendar.model.Content
-import dev.fcosta.contentCalendar.model.Status
-import dev.fcosta.contentCalendar.model.Type
-import dev.fcosta.contentCalendar.repository.ContentRepository
-import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.SpringApplication
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration
 import org.springframework.boot.autoconfigure.SpringBootApplication
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
-import org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration
 import org.springframework.boot.context.properties.EnableConfigurationProperties
-import org.springframework.context.ConfigurableApplicationContext
-import org.springframework.context.annotation.Bean
-import org.springframework.context.annotation.ComponentScan
 import org.springframework.data.jdbc.repository.config.EnableJdbcRepositories
-import org.springframework.web.client.RestTemplate
-
-import java.beans.BeanProperty
-import java.time.LocalDateTime
 
 // ApplicationContext and Inversion of Control (IoC)
 /*
@@ -56,7 +41,7 @@ class Application {
     }
 
     // Data init: see below or DataLoader class
-    @Bean
+/*    @Bean
     CommandLineRunner commandLineRunner(ContentRepository repository) {
         return (args) -> {
             Content content = new Content(
@@ -72,5 +57,5 @@ class Application {
 
             repository.save(content)
         }
-    }
+    }*/
 }
