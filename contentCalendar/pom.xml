@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>dev.fcosta</groupId>
-    <artifactId>contentCalendar</artifactId>
+    <artifactId>content-calendar</artifactId> <!-- contentCalendar does not work: capital letters not allowed in artifactId -->
     <version>0.0.1-SNAPSHOT</version>
     <name>contentCalendar</name>
     <description>contentCalendar</description>
