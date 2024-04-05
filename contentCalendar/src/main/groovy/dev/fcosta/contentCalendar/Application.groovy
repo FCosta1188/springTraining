@@ -47,7 +47,7 @@ class Application {
     }
 
 /*    @Bean
-    // Data initialization: see below or DataLoader class
+    // Data initialization (eg: for testing purposes, ...): see below or DataLoader class
     CommandLineRunner commandLineRunner(ContentRepository repository) {
         return (args) -> {
             Content content = new Content(
@@ -67,14 +67,14 @@ class Application {
 
     @Bean
     //Allows communication between apps located in different domains (cross-origin), eg backend and frontend
-    public CorsFilter corsFilter() {
+    CorsFilter corsFilter() {
         UrlBasedCorsConfigurationSource urlBasedCorsConfigurationSource = new UrlBasedCorsConfigurationSource()
 
         CorsConfiguration corsConfiguration = new CorsConfiguration()
         corsConfiguration.setAllowCredentials(true)
         corsConfiguration.setAllowedOrigins(Arrays.asList(
-                "http://localhost:3000",
-                "http://localhost:4200"
+                "http://localhost:3000", //react default
+                "http://localhost:4200" //angular default
         ))
         corsConfiguration.setAllowedHeaders(Arrays.asList(
                 "Origin",
